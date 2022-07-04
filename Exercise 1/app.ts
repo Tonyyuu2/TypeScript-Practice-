@@ -1,14 +1,30 @@
-function add(n1: number, n2: number, showResult: boolean, phrase: string) {
-  const result = n1 + n2
-  if (showResult) {
-    console.log(phrase + result);
-  }
-  return n1 + n2;
+// const person: {
+//   name: string;
+//   age: number;
+// } = {}
+
+const person: {
+  name: string;
+  age: number;
+  hobbies: string[];
+  role: [number, string];
+} = {
+  name: "Tony",
+  age: 27,
+  hobbies: ["Sports", "Cooking"],
+  role: [2, "author"],
+};
+
+// person.role.push('admin'); TS can't find this bug in a tuple
+// person.role[1] = 10;
+
+// person.role = [0, 'admin', 'user']
+
+let favoriteActivities: string[];
+favoriteActivities = ["Sports"];
+
+console.log(person);
+
+for (const hobby of person.hobbies) {
+  console.log(hobby.toUpperCase());
 }
-
-const number1 = 5;
-const number2 = 2.8;
-const printResult = true;
-const resultPhrase = "Result is: ";
-
-add(number1, number2, printResult, resultPhrase);
