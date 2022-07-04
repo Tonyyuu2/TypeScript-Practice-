@@ -1,44 +1,22 @@
-// const person: {
-//   name: string;
-//   age: number;
-// } = {}
-// const person: {
-//   name: string;
-//   age: number;
-//   hobbies: string[];
-//   role: [number, string];
-// } = {
-//   name: "Tony",
-//   age: 27,
-//   hobbies: ["Sports", "Cooking"],
-//   role: [2, "author"],
-// };
-// person.role.push('admin'); TS can't find this bug in a tuple
-// person.role[1] = 10;
-// person.role = [0, 'admin', 'user']
-// const ADMIN = 0;
-// const READ_ONLY = 1;
-// const AUTHOR = 2;
-var Role;
-(function (Role) {
-    Role[Role["ADMIN"] = 5] = "ADMIN";
-    Role["READ_ONLY"] = "READ_ONLY";
-    Role[Role["AUTHOR"] = 200] = "AUTHOR";
-})(Role || (Role = {}));
-;
-var person = {
-    name: "Tony",
-    age: 27,
-    hobbies: ["Sports", "Cooking"],
-    role: Role.READ_ONLY
-};
-var favoriteActivities;
-favoriteActivities = ["Sports"];
-console.log(person);
-for (var _i = 0, _a = person.hobbies; _i < _a.length; _i++) {
-    var hobby = _a[_i];
-    console.log(hobby.toUpperCase());
+function combine(input1, input2, resultConversion) {
+    var result;
+    if ((typeof input1 === "number" && typeof input2 === "number") ||
+        resultConversion === "as-number") {
+        result = +input1 + +input2;
+    }
+    else {
+        result = input1.toString() + input2.toString();
+    }
+    return result;
+    // if (resultConversion === 'as-number') {
+    //   return +result;
+    // } else {
+    //   return result.toString();
+    // }
 }
-if (person.role === Role.READ_ONLY) {
-    console.log('is READ_ONLY');
-}
+var combinedAges = combine(30, 26, "as-number");
+console.log(combinedAges);
+var combinedStringAges = combine("30", "26", "as-number");
+console.log(combinedStringAges);
+var combinedNames = combine("Max", "Anna", "as-text");
+console.log(combinedNames);
